@@ -109,72 +109,74 @@
    exit;
    ```
 - 在media_crawler数据库中建表
+
    ```shell
    mysql -u media_crawler -p
    USE media_crawler;
 
-# 创建小红书笔记表
-CREATE TABLE xhs_note (
-    id INT AUTO_INCREMENT COMMENT '自增ID',
-    user_id VARCHAR(64) COMMENT '用户ID',
-    nickname VARCHAR(64) COMMENT '用户昵称',
-    avatar VARCHAR(255) COMMENT '用户头像地址',
-    ip_location VARCHAR(255) COMMENT '评论时的IP地址',
-    add_ts BIGINT COMMENT '记录添加时间戳',
-    last_modify_ts BIGINT COMMENT '记录最后修改时间戳',
-    note_id VARCHAR(64) COMMENT '笔记ID',
-    type VARCHAR(16) COMMENT '笔记类型(normal | video)',
-    title VARCHAR(255) COMMENT '笔记标题',
-    `desc` TEXT COMMENT '笔记描述',
-    video_url TEXT COMMENT '视频地址',
-    time BIGINT COMMENT '笔记发布时间戳',
-    last_update_time BIGINT COMMENT '笔记最后更新时间戳',
-    liked_count VARCHAR(16) COMMENT '笔记点赞数',
-    collected_count VARCHAR(16) COMMENT '笔记收藏数',
-    comment_count VARCHAR(16) COMMENT '笔记评论数',
-    share_count VARCHAR(16) COMMENT '笔记分享数',
-    image_list TEXT COMMENT '笔记封面图片列表',
-    tag_list TEXT COMMENT '标签列表',
-    note_url VARCHAR(255) COMMENT '笔记详情页的URL',
-    PRIMARY KEY (id)
-) COMMENT='小红书笔记';
-
-# 创建小红书笔记评论表
-CREATE TABLE xhs_note_comment (
-    id INT AUTO_INCREMENT COMMENT '自增ID',
-    user_id VARCHAR(64) COMMENT '用户ID',
-    nickname VARCHAR(64) COMMENT '用户昵称',
-    avatar VARCHAR(255) COMMENT '用户头像地址',
-    ip_location VARCHAR(255) COMMENT '评论时的IP地址',
-    add_ts BIGINT COMMENT '记录添加时间戳',
-    last_modify_ts BIGINT COMMENT '记录最后修改时间戳',
-    comment_id VARCHAR(64) COMMENT '评论ID',
-    create_time BIGINT COMMENT '评论时间戳',
-    note_id VARCHAR(64) COMMENT '笔记ID',
-    content TEXT COMMENT '评论内容',
-    sub_comment_count INT COMMENT '子评论数量',
-    pictures VARCHAR(512) COMMENT '评论的图片集合',
-    PRIMARY KEY (id)
-) COMMENT='小红书笔记评论';
-
-# 创建小红书博主表
-CREATE TABLE xhs_creator (
-    id INT AUTO_INCREMENT COMMENT '自增ID',
-    user_id VARCHAR(64) COMMENT '用户ID',
-    nickname VARCHAR(64) COMMENT '用户昵称',
-    avatar VARCHAR(255) COMMENT '用户头像地址',
-    ip_location VARCHAR(255) COMMENT '评论时的IP地址',
-    add_ts BIGINT COMMENT '记录添加时间戳',
-    last_modify_ts BIGINT COMMENT '记录最后修改时间戳',
-    `desc` TEXT COMMENT '用户描述',
-    gender VARCHAR(1) COMMENT '性别',
-    follows VARCHAR(16) COMMENT '关注数',
-    fans VARCHAR(16) COMMENT '粉丝数',
-    interaction VARCHAR(16) COMMENT '获赞和收藏数',
-    tag_list TEXT COMMENT '标签列表',
-    PRIMARY KEY (id)
-) COMMENT='小红书博主';
+   # 创建小红书笔记表
+   CREATE TABLE xhs_note (
+       id INT AUTO_INCREMENT COMMENT '自增ID',
+       user_id VARCHAR(64) COMMENT '用户ID',
+       nickname VARCHAR(64) COMMENT '用户昵称',
+       avatar VARCHAR(255) COMMENT '用户头像地址',
+       ip_location VARCHAR(255) COMMENT '评论时的IP地址',
+       add_ts BIGINT COMMENT '记录添加时间戳',
+       last_modify_ts BIGINT COMMENT '记录最后修改时间戳',
+       note_id VARCHAR(64) COMMENT '笔记ID',
+       type VARCHAR(16) COMMENT '笔记类型(normal | video)',
+       title VARCHAR(255) COMMENT '笔记标题',
+       `desc` TEXT COMMENT '笔记描述',
+       video_url TEXT COMMENT '视频地址',
+       time BIGINT COMMENT '笔记发布时间戳',
+       last_update_time BIGINT COMMENT '笔记最后更新时间戳',
+       liked_count VARCHAR(16) COMMENT '笔记点赞数',
+       collected_count VARCHAR(16) COMMENT '笔记收藏数',
+       comment_count VARCHAR(16) COMMENT '笔记评论数',
+       share_count VARCHAR(16) COMMENT '笔记分享数',
+       image_list TEXT COMMENT '笔记封面图片列表',
+       tag_list TEXT COMMENT '标签列表',
+       note_url VARCHAR(255) COMMENT '笔记详情页的URL',
+       PRIMARY KEY (id)
+   ) COMMENT='小红书笔记';
+   
+   # 创建小红书笔记评论表
+   CREATE TABLE xhs_note_comment (
+       id INT AUTO_INCREMENT COMMENT '自增ID',
+       user_id VARCHAR(64) COMMENT '用户ID',
+       nickname VARCHAR(64) COMMENT '用户昵称',
+       avatar VARCHAR(255) COMMENT '用户头像地址',
+       ip_location VARCHAR(255) COMMENT '评论时的IP地址',
+       add_ts BIGINT COMMENT '记录添加时间戳',
+       last_modify_ts BIGINT COMMENT '记录最后修改时间戳',
+       comment_id VARCHAR(64) COMMENT '评论ID',
+       create_time BIGINT COMMENT '评论时间戳',
+       note_id VARCHAR(64) COMMENT '笔记ID',
+       content TEXT COMMENT '评论内容',
+       sub_comment_count INT COMMENT '子评论数量',
+       pictures VARCHAR(512) COMMENT '评论的图片集合',
+       PRIMARY KEY (id)
+   ) COMMENT='小红书笔记评论';
+   
+   # 创建小红书博主表
+   CREATE TABLE xhs_creator (
+       id INT AUTO_INCREMENT COMMENT '自增ID',
+       user_id VARCHAR(64) COMMENT '用户ID',
+       nickname VARCHAR(64) COMMENT '用户昵称',
+       avatar VARCHAR(255) COMMENT '用户头像地址',
+       ip_location VARCHAR(255) COMMENT '评论时的IP地址',
+       add_ts BIGINT COMMENT '记录添加时间戳',
+       last_modify_ts BIGINT COMMENT '记录最后修改时间戳',
+       `desc` TEXT COMMENT '用户描述',
+       gender VARCHAR(1) COMMENT '性别',
+       follows VARCHAR(16) COMMENT '关注数',
+       fans VARCHAR(16) COMMENT '粉丝数',
+       interaction VARCHAR(16) COMMENT '获赞和收藏数',
+       tag_list TEXT COMMENT '标签列表',
+       PRIMARY KEY (id)
+   ) COMMENT='小红书博主';
    ```
+
 - 修改config/base_config.py
    ```shell
    SAVE_DATA_OPTION = "db"
