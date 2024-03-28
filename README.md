@@ -112,8 +112,10 @@
    ```shell
    mysql -u media_crawler -p
    USE media_crawler;
+   ```
 
 -- 创建小红书笔记表
+   ```shell
 CREATE TABLE xhs_note (
     id INT AUTO_INCREMENT COMMENT '自增ID',
     user_id VARCHAR(64) COMMENT '用户ID',
