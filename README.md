@@ -99,7 +99,7 @@
    ```
 - 创建media_crawler账户
    ```shell
-   CREATE USER 'media_crawler'@'localhost' IDENTIFIED BY '123456';
+   CREATE USER 'media_crawler'@'localhost' IDENTIFIED BY 'mc123456';
    ```
 - 创建media_crawler数据库，并授权给media_crawler账户
    ```shell
@@ -183,7 +183,7 @@
    ```
 - 修改config/db_config.py
    ```shell
-   RELATION_DB_PWD = os.getenv("media_crawler", "123456")  # your relation db password
+   RELATION_DB_PWD = os.getenv("media_crawler", "mc123456")  # your relation db password
    RELATION_DB_URL = f"mysql://media_crawler:{RELATION_DB_PWD}@localhost:3306/media_crawler"
    ```
 
