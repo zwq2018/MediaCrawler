@@ -113,7 +113,7 @@
    mysql -u media_crawler -p
    USE media_crawler;
 
--- 创建小红书笔记表
+# 创建小红书笔记表
 CREATE TABLE xhs_note (
     id INT AUTO_INCREMENT COMMENT '自增ID',
     user_id VARCHAR(64) COMMENT '用户ID',
@@ -139,7 +139,7 @@ CREATE TABLE xhs_note (
     PRIMARY KEY (id)
 ) COMMENT='小红书笔记';
 
--- 创建小红书笔记评论表
+# 创建小红书笔记评论表
 CREATE TABLE xhs_note_comment (
     id INT AUTO_INCREMENT COMMENT '自增ID',
     user_id VARCHAR(64) COMMENT '用户ID',
@@ -157,7 +157,7 @@ CREATE TABLE xhs_note_comment (
     PRIMARY KEY (id)
 ) COMMENT='小红书笔记评论';
 
--- 创建小红书博主表
+# 创建小红书博主表
 CREATE TABLE xhs_creator (
     id INT AUTO_INCREMENT COMMENT '自增ID',
     user_id VARCHAR(64) COMMENT '用户ID',
