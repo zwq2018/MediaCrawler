@@ -41,7 +41,7 @@ async def main():
 
     # init db
     if config.SAVE_DATA_OPTION == "db":
-        await db.init_db()
+        await db.init_db(False)
 
     args = parser.parse_args()
     crawler = CrawlerFactory.create_crawler(platform=args.platform)
